@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+
+
 import { DailyForecast } from '../DailyForecast';
 
 import {NoResults} from '../NoResults';
 import { CurrentLocation } from './CurrentLocation';
 import { CurrentTemperature } from './CurrentTemperature';
 import { LocationDetails } from './LocationDetails';
+import { PinLocation } from './PinLocation';
 import { TemperatureMain } from './TemperatureMain';
 
 
@@ -28,6 +31,7 @@ export const LocationWeather = ({location}) => {
       <CurrentLocation location={location} style={styles.typography} />
       <CurrentTemperature location={location} style={styles.typography} />
       <TemperatureMain location={location} style={styles.typography}/>
+      <PinLocation locationName={location.name} />
       <LocationDetails location={location} />
       <DailyForecast query={location} />
     </ScrollView>

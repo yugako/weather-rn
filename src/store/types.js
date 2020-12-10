@@ -1,2 +1,8 @@
 export const ADD_LOCATION = 'ADD_LOCATION';
 export const ADD_HISTORY = 'ADD_HISTORY';
+
+export const LOAD_LOCATIONS = 'LOAD_LOCATIONS';
+export const LOAD_HISTORY = 'LOAD_HISTORY';
+
+export const REMOVE_LOCATION = 'REMOVE_LOCATION';
+export const REMOVE_HISTORY = 'REMOVE_HISTORY';
