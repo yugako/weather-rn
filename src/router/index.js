@@ -29,7 +29,7 @@ const screenOptions = ({route}) => ({
         iconName = focused ? 'ios-home-outline' : 'ios-home';
         break;
     }
-    // You can return any component that you like here!
+
     return <Icon name={iconName} size={18} color={color} />;
   },
 });

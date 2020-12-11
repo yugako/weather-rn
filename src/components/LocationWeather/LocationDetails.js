@@ -2,7 +2,9 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {List} from 'react-native-paper';
 
-export const LocationDetails = ({location, ...props}) => {
+import { THEME } from '../../theme';
+
+export const LocationDetails = ({location}) => {
   const details = [
     {
       name: 'Humidity',
@@ -29,6 +31,11 @@ export const LocationDetails = ({location, ...props}) => {
       value: location.visibility + ' m',
       icon: 'glasses',
     },
+    {
+      name: 'Wind',
+      value: location.wind.speed + ' m/s',
+      icon: 'weather-windy'
+    }
   ];
 
   return (
@@ -55,9 +62,9 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   list: {
-    backgroundColor: '#fff',
+    backgroundColor: THEME.LIGHT_COLOR,
     padding: 20,
-    marginVertical: 30,
+    marginVertical: 20,
     borderRadius: 5,
   },
 });

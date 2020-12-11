@@ -35,6 +35,11 @@ export const loadHistory = () => async (dispatch) => {
         type: LOAD_HISTORY,
         payload: JSON.parse(historyList),
       });
+    } else {
+      dispatch({
+        type: LOAD_HISTORY,
+        payload: [],
+      });
     }
   } catch (e) {
     console.log(e);

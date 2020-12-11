@@ -2,7 +2,8 @@ import {ADD_HISTORY, LOAD_HISTORY, REMOVE_HISTORY } from '../types';
 
 const initialState = {
     history: [],
-    error: ''
+    error: '',
+    loading: true,
 };
 
 const handlers = {
@@ -10,7 +11,7 @@ const handlers = {
         ...state,
         history: state.history.find(h => h === payload) ? [...state.history] : [payload, ...state.history]
     }),
-    [LOAD_HISTORY]: (state, {payload}) => ({...state, history: [...payload]}),
+    [LOAD_HISTORY]: (state, {payload}) => ({...state, history: [...payload], loading: false}),
     [REMOVE_HISTORY]: (state, {payload}) => ({...state, history: state.history.filter(h => h !== payload)}),
     DEFAULT: state => state
 }

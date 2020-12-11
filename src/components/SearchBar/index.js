@@ -1,8 +1,10 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Alert, StyleSheet} from 'react-native';
 import {Searchbar} from 'react-native-paper';
 import {useDispatch} from 'react-redux';
-import {addHistory} from '../../store/actions/history';
+
+import { Http } from '../../http';
+import { addHistory } from '../../store/actions/history';
 
 export const SearchBar = ({locationName, onSearch}) => {
   const [searchQuery, setSearchQuery] = useState(locationName);
@@ -14,14 +16,9 @@ export const SearchBar = ({locationName, onSearch}) => {
     if (!query.trim()) {
       Alert.alert('Error', 'Please, enter a desired location');
     } else {
-      console.log(locationName);
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=abce0e7091cd40c086a84e4593d9f320&units=metric&lang=en,ua`,
-      );
-      const data = await response.json();
+      const data = await Http.getDataByCity(query);
 
       onSearch(data);
-
       dispatch(addHistory(query));
     }
   };

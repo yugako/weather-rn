@@ -1,33 +1,21 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
 
-
-import { DailyForecast } from '../DailyForecast';
-
-import {NoResults} from '../NoResults';
+import { DailyForecast } from './DailyForecast';
 import { CurrentLocation } from './CurrentLocation';
 import { CurrentTemperature } from './CurrentTemperature';
 import { LocationDetails } from './LocationDetails';
 import { PinLocation } from './PinLocation';
 import { TemperatureMain } from './TemperatureMain';
-
+import { THEME } from '../../theme';
+import { NotFound } from './NotFound';
 
 export const LocationWeather = ({location}) => {
-  if (!location) return <NoResults />;
 
-  if (location.cod === '404') {
-    return (
-      <View>
-        <Text style={styles.typography}>Nothing found by your request!</Text>
-      </View>
-    )
-  }
+  if (location.cod === '404') return <NotFound style={styles.typography} />
 
   return (
     <ScrollView style={styles.wrap}>
-      {/* {{
-        wind: {deg: 140, speed: 6},
-      }} */}
       <CurrentLocation location={location} style={styles.typography} />
       <CurrentTemperature location={location} style={styles.typography} />
       <TemperatureMain location={location} style={styles.typography}/>
@@ -43,7 +31,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   typography: {
-    color: '#fff',
+    color: THEME.LIGHT_COLOR,
     textAlign: 'center',
   },
 });

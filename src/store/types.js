@@ -6,3 +6,6 @@ export const LOAD_HISTORY = 'LOAD_HISTORY';
 
 export const REMOVE_LOCATION = 'REMOVE_LOCATION';
 export const REMOVE_HISTORY = 'REMOVE_HISTORY';
+
+export const SET_FEATURED = 'SET_FEATURED';
+export const RESET_FEATURED = 'RESET_FEATURED';
